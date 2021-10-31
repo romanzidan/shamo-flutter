@@ -1,26 +1,20 @@
 import 'package:flutter/material.dart';
-import 'theme.dart';
+import 'package:shamo_flutter/pages/sign_in_page.dart';
+import 'package:shamo_flutter/pages/splash_page.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: HomePage());
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-          child: Text('Halo Semuanya!',
-              style: secondaryTextStyle.copyWith(fontSize: 30))),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      routes: {
+        '/': (context) => SplashPage(),
+        '/sign-in': (context) => const SignInPage(),
+      },
     );
   }
 }
